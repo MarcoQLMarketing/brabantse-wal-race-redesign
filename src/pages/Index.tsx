@@ -90,7 +90,10 @@ const Index = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <img src={logoWhite} alt="Triathlon Brabantse Wal" className="h-28 md:h-40 mx-auto mb-6" />
+          <img src={logoWhite} alt="Triathlon Brabantse Wal" className="w-[260px] sm:w-[320px] md:w-[420px] max-w-full mx-auto mb-6" />
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-6">
+            De ultieme uitdaging door water, polder en vestingstad: zwemmen in het Markiezaatsmeer, knallen op de Wal en finishen in het hart van Bergen op Zoom.
+          </p>
           <p className="text-lg md:text-xl text-white/90 mb-8 font-sans">
             14 juni 2026 · Bergen op Zoom
           </p>
