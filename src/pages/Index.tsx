@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Lightbox from "@/components/Lightbox";
-import { ChevronRight, Clock, MapPin, Calendar, Users, Heart, Mail, Phone, Facebook, Instagram } from "lucide-react";
+import { ChevronRight, Clock, MapPin, Calendar, Users, Heart, Mail, Phone, Facebook, Instagram, ChevronDown } from "lucide-react";
 
 import logoWhite from "@/assets/logo-white.png";
 import logoColor from "@/assets/logo-color.png";
@@ -36,7 +36,14 @@ function useCountdown(target: Date) {
   };
 }
 
-const navItems = ["Home", "Info", "Afstanden", "Foto's", "Sponsors", "Contact"];
+const navItems = ["Home", "Afstanden", "Foto's", "Sponsors", "Contact"];
+
+const infoLinks = [
+  { label: "Programma & FAQ's", href: "/praktisch" },
+  { label: "Routes", href: "/routes" },
+];
+
+const registrationUrl = "https://atleta.cc/e/Fx1VoOeKOcz8?initialUrl=https%3A%2F%2Ftriathlonbw.nl%2F&finalUrl=https%3A%2F%2Ftriathlonbw.nl%2F";
 
 const distances = [
   { title: "1/8 Triathlon", subtitle: "Achtste (Sprint)", swim: "500m", bike: "20km", run: "5km", color: "bg-primary" },
@@ -71,12 +78,26 @@ const Index = () => {
                 {item}
               </a>
             ))}
-            <a href="/praktisch" className="text-sm text-accent-foreground/80 hover:text-primary transition-colors font-medium">
-              Praktische info
-            </a>
+            <div className="relative group">
+              <button
+                type="button"
+                className="flex items-center gap-1 text-sm text-accent-foreground/80 hover:text-primary transition-colors font-medium"
+              >
+                Info <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
+              </button>
+              <div className="pointer-events-none absolute top-full left-0 mt-2 hidden min-w-[200px] flex-col rounded-lg border border-border bg-background/95 p-2 text-sm shadow-lg group-hover:flex group-focus-within:flex group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
+                {infoLinks.map((link) => (
+                  <a key={link.href} href={link.href} className="rounded-md px-3 py-2 text-foreground hover:bg-muted">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-yellow-hover font-display uppercase tracking-wide">
-            Inschrijven
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-yellow-hover font-display uppercase tracking-wide" asChild>
+            <a href={registrationUrl} target="_blank" rel="noreferrer">
+              Inschrijven
+            </a>
           </Button>
         </div>
       </nav>
@@ -103,8 +124,10 @@ const Index = () => {
             14 juni 2026 · Bergen op Zoom
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-primary text-primary-foreground hover:bg-yellow-hover font-display text-lg px-10 h-14 uppercase tracking-wider shadow-lg">
-              Schrijf je in <ChevronRight className="ml-1 h-5 w-5" />
+            <Button className="bg-primary text-primary-foreground hover:bg-yellow-hover font-display text-lg px-10 h-14 uppercase tracking-wider shadow-lg" asChild>
+              <a href={registrationUrl} target="_blank" rel="noreferrer">
+                Schrijf je in <ChevronRight className="ml-1 h-5 w-5" />
+              </a>
             </Button>
             <Button className="bg-white/20 backdrop-blur text-white border border-white/30 hover:bg-white/30 font-display text-lg px-10 h-14 uppercase tracking-wider">
               Word Vrijwilliger <Heart className="ml-1 h-5 w-5" />
@@ -245,8 +268,10 @@ const Index = () => {
                       </div>
                     </div>
                   </div>
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-yellow-hover font-display uppercase tracking-wide">
-                    Inschrijven <ChevronRight className="ml-1 h-4 w-4" />
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-yellow-hover font-display uppercase tracking-wide" asChild>
+                    <a href={registrationUrl} target="_blank" rel="noreferrer">
+                      Inschrijven <ChevronRight className="ml-1 h-4 w-4" />
+                    </a>
                   </Button>
                 </div>
               </motion.div>

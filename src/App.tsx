@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Styleguide from "./pages/Styleguide";
 import NotFound from "./pages/NotFound";
 import Praktisch from "./pages/Praktisch";
+import RoutesPage from "./pages/Routes";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/praktisch" element={<Praktisch />} />
+          <Route path="/routes" element={<RoutesPage />} />
           <Route path="/styleguide" element={<Styleguide />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
