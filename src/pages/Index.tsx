@@ -3,10 +3,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Lightbox from "@/components/Lightbox";
-import { ChevronRight, Clock, MapPin, Calendar, Users, Heart, Mail, Phone, Facebook, Instagram, ChevronDown } from "lucide-react";
+import { ChevronRight, Clock, MapPin, Calendar, Users, Heart } from "lucide-react";
 
-import logoWhite from "@/assets/logo-white.png";
-import logoColor from "@/assets/logo-color.png";
 import photoFinish from "@/assets/photos/finish.jpg";
 import photoCyclingGroup from "@/assets/photos/cycling-group.jpg";
 import photoSwimming from "@/assets/photos/swimming.jpg";
@@ -17,6 +15,8 @@ import photoRunning from "@/assets/photos/running.jpg";
 import photoSwimming3 from "@/assets/photos/swimming-3.jpg";
 import photoCycling from "@/assets/photos/cycling.jpg";
 import photoFinishArch from "@/assets/photos/finish-arch.jpg";
+import SiteNav, { registrationUrl } from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 // Countdown logic
 const EVENT_DATE = new Date("2026-06-14T09:00:00");
@@ -35,15 +35,6 @@ function useCountdown(target: Date) {
     seconds: Math.floor((diff % 60000) / 1000),
   };
 }
-
-const navItems = ["Home", "Afstanden", "Foto's", "Sponsors", "Contact"];
-
-const infoLinks = [
-  { label: "Programma & FAQ's", href: "/praktisch" },
-  { label: "Routes", href: "/routes" },
-];
-
-const registrationUrl = "https://atleta.cc/e/Fx1VoOeKOcz8?initialUrl=https%3A%2F%2Ftriathlonbw.nl%2F&finalUrl=https%3A%2F%2Ftriathlonbw.nl%2F";
 
 const distances = [
   { title: "1/8 Triathlon", subtitle: "Achtste (Sprint)", swim: "500m", bike: "20km", run: "5km", color: "bg-primary" },
@@ -67,43 +58,12 @@ const Index = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm">
-        <div className="container max-w-6xl flex items-center justify-between h-14">
-          <img src={logoColor} alt="TBW" className="h-8" />
-          <div className="hidden md:flex items-center gap-6">
-            {navItems.map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-sm text-accent-foreground/80 hover:text-primary transition-colors font-medium">
-                {item}
-              </a>
-            ))}
-            <div className="relative group">
-              <button
-                type="button"
-                className="flex items-center gap-1 text-sm text-accent-foreground/80 hover:text-primary transition-colors font-medium"
-              >
-                Info <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
-              </button>
-              <div className="pointer-events-none absolute top-full left-0 mt-2 hidden min-w-[200px] flex-col rounded-lg border border-border bg-background/95 p-2 text-sm shadow-lg group-hover:flex group-focus-within:flex group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
-                {infoLinks.map((link) => (
-                  <a key={link.href} href={link.href} className="rounded-md px-3 py-2 text-foreground hover:bg-muted">
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-yellow-hover font-display uppercase tracking-wide" asChild>
-            <a href={registrationUrl} target="_blank" rel="noreferrer">
-              Inschrijven
-            </a>
-          </Button>
-        </div>
-      </nav>
+    <div className="bg-background min-h-screen">
+      <SiteNav />
 
-      {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-14" id="home">
+      <main className="pt-14">
+        {/* Hero */}
+        <section className="relative min-h-[90vh] flex items-center justify-center" id="home">
         <div className="absolute inset-0">
           <img src={photoFinishArch} alt="Triathlon Brabantse Wal" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-foreground/40" />
@@ -357,43 +317,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-foreground text-accent-foreground py-12" id="contact">
-        <div className="container max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="space-y-4">
-              <img src={logoWhite} alt="TBW" className="h-12" />
-              <p className="text-accent-foreground/70 text-sm">
-                Triathlon Brabantse Wal — Hét triathlonevenement van Bergen op Zoom.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-lg text-primary">Contact</h3>
-              <div className="space-y-2 text-sm text-accent-foreground/70">
-                <p className="flex items-center gap-2"><Mail className="h-4 w-4" /> info@triathlonbw.nl</p>
-                <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> 06-12345678</p>
-                <p className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Bergen op Zoom</p>
-              </div>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-lg text-primary">Links</h3>
-              <div className="space-y-2 text-sm text-accent-foreground/70">
-                <p><a href="#" className="hover:text-primary transition-colors">Route (Hello Drifter)</a></p>
-                <p><a href="#" className="hover:text-primary transition-colors">Nieuwsbrief</a></p>
-                <p><a href="#" className="hover:text-primary transition-colors">Reglement</a></p>
-              </div>
-              <div className="flex gap-3 pt-2">
-                <a href="#" className="text-accent-foreground/50 hover:text-primary transition-colors"><Facebook className="h-5 w-5" /></a>
-                <a href="#" className="text-accent-foreground/50 hover:text-primary transition-colors"><Instagram className="h-5 w-5" /></a>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-accent-foreground/10 mt-8 pt-6 text-center text-xs text-accent-foreground/40">
-            © 2026 Triathlon Brabantse Wal. Alle rechten voorbehouden.
-          </div>
-        </div>
-      </footer>
-
       {/* Lightbox */}
       <Lightbox
         images={galleryPhotos}
@@ -401,6 +324,9 @@ const Index = () => {
         onClose={() => setLightboxIndex(null)}
         onNavigate={(i) => setLightboxIndex(i)}
       />
+      </main>
+
+      <SiteFooter />
     </div>
   );
 };

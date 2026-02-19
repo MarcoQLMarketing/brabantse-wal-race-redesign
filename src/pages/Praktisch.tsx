@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 const schedule = [
   { time: "07:00", activity: "Opening registratie & check-in" },
@@ -215,8 +217,10 @@ const faqSections = [
 ];
 
 const Praktisch = () => (
-  <div className="bg-background text-foreground">
-    <section className="bg-foreground text-accent-foreground py-16">
+  <div className="bg-background text-foreground min-h-screen">
+    <SiteNav />
+    <main className="pt-20">
+      <section className="bg-foreground text-accent-foreground py-16">
       <div className="container max-w-4xl text-center space-y-4">
         <p className="uppercase tracking-[0.3em] text-sm text-primary">Praktische informatie</p>
         <h1 className="text-4xl md:text-5xl font-display">Alles wat je moet weten voor raceday</h1>
@@ -297,6 +301,9 @@ const Praktisch = () => (
         </div>
       </div>
     </section>
+    </main>
+
+    <SiteFooter />
   </div>
 );
 

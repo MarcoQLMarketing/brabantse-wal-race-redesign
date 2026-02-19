@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 const updates = [
   "Wisselzone breidt uit naar stoep en fietspad.",
@@ -13,8 +15,10 @@ const routeEmbeds = [
 ];
 
 const Routes = () => (
-  <div className="bg-background text-foreground">
-    <section className="bg-foreground text-accent-foreground py-16">
+  <div className="bg-background text-foreground min-h-screen">
+    <SiteNav />
+    <main className="pt-20">
+      <section className="bg-foreground text-accent-foreground py-16">
       <div className="container max-w-4xl text-center space-y-4">
         <p className="uppercase tracking-[0.3em] text-sm text-primary">Routes 2026</p>
         <h1 className="text-4xl md:text-5xl font-display">Swim · Bike · Run langs de Brabantse Wal</h1>
@@ -100,6 +104,9 @@ const Routes = () => (
         </div>
       </div>
     </section>
+    </main>
+
+    <SiteFooter />
   </div>
 );
 
