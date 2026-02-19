@@ -219,8 +219,8 @@ const faqSections = [
 const Praktisch = () => (
   <div className="bg-background text-foreground min-h-screen">
     <SiteNav />
-    <main className="pt-20">
-      <section className="bg-foreground text-accent-foreground py-16">
+    <main className="pt-16">
+      <section className="bg-[#1c2135] text-accent-foreground py-16 border-b border-white/10">
       <div className="container max-w-4xl text-center space-y-4">
         <p className="uppercase tracking-[0.3em] text-sm text-primary">Praktische informatie</p>
         <h1 className="text-4xl md:text-5xl font-display">Alles wat je moet weten voor raceday</h1>

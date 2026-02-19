@@ -61,7 +61,7 @@ const Index = () => {
     <div className="bg-background min-h-screen">
       <SiteNav />
 
-      <main className="pt-14">
+      <main className="pt-16">
         {/* Hero */}
         <section className="relative min-h-[90vh] flex items-center justify-center" id="home">
         <div className="absolute inset-0">
