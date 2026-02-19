@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Lightbox from "@/components/Lightbox";
 import { ChevronRight, Clock, MapPin, Calendar, Users, Heart, Mail, Phone, Facebook, Instagram } from "lucide-react";
 
 import logoWhite from "@/assets/logo-white.png";
@@ -38,9 +39,9 @@ function useCountdown(target: Date) {
 const navItems = ["Home", "Info", "Afstanden", "Foto's", "Sponsors", "Contact"];
 
 const distances = [
-  { title: "Sprint", swim: "750m", bike: "20km", run: "5km", color: "bg-primary" },
-  { title: "Olympisch", swim: "1500m", bike: "40km", run: "10km", color: "bg-accent" },
-  { title: "Kwart", swim: "500m", bike: "20km", run: "2.5km", color: "bg-secondary" },
+  { title: "1/8 Triathlon", subtitle: "Achtste (Sprint)", swim: "500m", bike: "20km", run: "5km", color: "bg-primary" },
+  { title: "1/4 Triathlon", subtitle: "Kwart (Olympisch)", swim: "1.000m", bike: "40km", run: "10km", color: "bg-accent" },
+  { title: "1/2 Triathlon", subtitle: "Halve (70.3)", swim: "1.900m", bike: "90km", run: "21,1km", color: "bg-secondary" },
 ];
 
 const galleryPhotos = [
@@ -56,13 +57,14 @@ const fadeUp = {
 
 const Index = () => {
   const countdown = useCountdown(EVENT_DATE);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm">
         <div className="container max-w-6xl flex items-center justify-between h-14">
-          <img src={logoWhite} alt="TBW" className="h-8" />
+          <img src={logoColor} alt="TBW" className="h-8" />
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="text-sm text-accent-foreground/80 hover:text-primary transition-colors font-medium">
@@ -89,9 +91,6 @@ const Index = () => {
           transition={{ duration: 0.8 }}
         >
           <img src={logoWhite} alt="Triathlon Brabantse Wal" className="h-28 md:h-40 mx-auto mb-6" />
-          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-3 drop-shadow-lg">
-            Triathlon Brabantse Wal
-          </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 font-sans">
             14 juni 2026 · Bergen op Zoom
           </p>
@@ -104,6 +103,10 @@ const Index = () => {
             </Button>
           </div>
         </motion.div>
+        {/* Shape divider */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 leading-[0] translate-y-[1px]">
+          <img src="/wave-divider.svg" alt="" className="w-full h-auto block [filter:brightness(0)_saturate(100%)_invert(12%)_sepia(30%)_saturate(1500%)_hue-rotate(160deg)]" />
+        </div>
       </section>
 
       {/* Countdown */}
@@ -210,6 +213,7 @@ const Index = () => {
                 <div className={`h-2 ${d.color}`} />
                 <div className="p-6 space-y-5">
                   <h3 className="text-2xl text-foreground">{d.title}</h3>
+                  <p className="text-sm text-muted-foreground">{d.subtitle}</p>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-lg">🏊</div>
@@ -258,11 +262,12 @@ const Index = () => {
             {galleryPhotos.map((src, i) => (
               <motion.div
                 key={i}
-                className="aspect-square rounded-lg overflow-hidden"
+                className="aspect-square rounded-lg overflow-hidden cursor-pointer"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
+                onClick={() => setLightboxIndex(i)}
               >
                 <img
                   src={src}
@@ -355,6 +360,14 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Lightbox */}
+      <Lightbox
+        images={galleryPhotos}
+        currentIndex={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onNavigate={(i) => setLightboxIndex(i)}
+      />
     </div>
   );
 };
