@@ -71,6 +71,9 @@ const Index = () => {
                 {item}
               </a>
             ))}
+            <a href="/praktisch" className="text-sm text-accent-foreground/80 hover:text-primary transition-colors font-medium">
+              Praktische info
+            </a>
           </div>
           <Button size="sm" className="bg-primary text-primary-foreground hover:bg-yellow-hover font-display uppercase tracking-wide">
             Inschrijven
@@ -90,7 +93,9 @@ const Index = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <img src={logoWhite} alt="Triathlon Brabantse Wal" className="w-[260px] sm:w-[320px] md:w-[420px] max-w-full mx-auto mb-6" />
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-display tracking-tight mb-6">
+            Triathlon Brabantse Wal
+          </h1>
           <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-6">
             De ultieme uitdaging door water, polder en vestingstad: zwemmen in het Markiezaatsmeer, knallen op de Wal en finishen in het hart van Bergen op Zoom.
           </p>
@@ -108,7 +113,7 @@ const Index = () => {
         </motion.div>
         {/* Shape divider */}
         <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center translate-y-[1px]">
-          <img src="/wave-divider.svg" alt="" className="block w-auto max-h-[400px]" />
+          <img src="/wave-divider.svg" alt="" className="block w-auto max-h-[325px]" />
         </div>
       </section>
 
