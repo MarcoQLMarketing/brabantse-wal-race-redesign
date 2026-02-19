@@ -104,8 +104,8 @@ const Index = () => {
           </div>
         </motion.div>
         {/* Shape divider */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 leading-[0] translate-y-[1px]">
-          <img src="/wave-divider.svg" alt="" className="w-full h-auto block [filter:brightness(0)_saturate(100%)_invert(12%)_sepia(30%)_saturate(1500%)_hue-rotate(160deg)]" />
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center translate-y-[1px]">
+          <img src="/wave-divider.svg" alt="" className="block w-auto max-h-[400px]" />
         </div>
       </section>
 
