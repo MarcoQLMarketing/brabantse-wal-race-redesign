@@ -17,6 +17,7 @@ import photoCycling from "@/assets/photos/cycling.jpg";
 import photoFinishArch from "@/assets/photos/finish-arch.jpg";
 import SiteNav, { registrationUrl } from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import LatestNews from "@/components/LatestNews";
 
 // Countdown logic
 const EVENT_DATE = new Date("2026-06-14T09:00:00");
@@ -302,6 +303,9 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Laatste Nieuws */}
+      <LatestNews />
 
       {/* Sponsors */}
       <section className="py-16 bg-muted" id="sponsors">

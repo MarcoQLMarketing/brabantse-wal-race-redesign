@@ -10,13 +10,15 @@ const homeLink = { label: "Home", href: "/#home" };
 const navLinks = [
   { label: "Afstanden", href: "/#afstanden" },
   { label: "Foto's", href: "/#foto's" },
-  { label: "Sponsors", href: "/#sponsors" },
+  { label: "Nieuws", href: "/nieuws" },
+  { label: "Sponsoren", href: "/sponsoren" },
   { label: "Contact", href: "/#contact" },
 ];
 
 const infoLinks = [
   { label: "Programma & FAQ's", href: "/praktisch" },
   { label: "Routes", href: "/routes" },
+  { label: "Vrijwilligers", href: "/vrijwilligers" },
 ];
 
 export const registrationUrl =
