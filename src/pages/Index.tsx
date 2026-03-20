@@ -303,6 +303,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Laatste Nieuws */}
+      <LatestNews />
+
       {/* Sponsors */}
       <section className="py-16 bg-muted" id="sponsors">
         <div className="container max-w-6xl text-center">
