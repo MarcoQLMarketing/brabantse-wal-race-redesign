@@ -8,6 +8,9 @@ import Styleguide from "./pages/Styleguide";
 import NotFound from "./pages/NotFound";
 import Praktisch from "./pages/Praktisch";
 import RoutesPage from "./pages/Routes";
+import Sponsoren from "./pages/Sponsoren";
+import Vrijwilligers from "./pages/Vrijwilligers";
+import Nieuws from "./pages/Nieuws";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +24,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/praktisch" element={<Praktisch />} />
           <Route path="/routes" element={<RoutesPage />} />
+          <Route path="/sponsoren" element={<Sponsoren />} />
+          <Route path="/vrijwilligers" element={<Vrijwilligers />} />
+          <Route path="/nieuws" element={<Nieuws />} />
           <Route path="/styleguide" element={<Styleguide />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

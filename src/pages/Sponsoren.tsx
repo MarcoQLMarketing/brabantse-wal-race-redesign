@@ -151,7 +151,7 @@ const Sponsoren = () => (
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: i * 0.12, duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
               >
                 <div className={`h-2 ${tier.color}`} />
                 <div className="p-6 space-y-5">

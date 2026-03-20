@@ -162,7 +162,7 @@ const Vrijwilligers = () => (
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
               >
                 <div className="text-3xl mb-3">{role.icon}</div>
                 <h3 className="text-lg text-foreground mb-2">{role.title}</h3>
