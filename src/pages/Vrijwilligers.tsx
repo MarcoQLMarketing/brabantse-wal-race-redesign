@@ -69,7 +69,7 @@ const Vrijwilligers = () => (
           className="relative z-10 text-center px-4 max-w-3xl"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
         >
           <div className="inline-flex items-center gap-2 bg-primary/90 text-primary-foreground px-4 py-2 rounded-full font-display text-sm uppercase tracking-widest mb-6">
             <Star className="h-4 w-4" /> Helden van het evenement
