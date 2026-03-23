@@ -90,8 +90,10 @@ const Index = () => {
                 Schrijf je in <ChevronRight className="ml-1 h-5 w-5" />
               </a>
             </Button>
-            <Button className="bg-white/20 backdrop-blur text-white border border-white/30 hover:bg-white/30 font-display text-lg px-10 h-14 uppercase tracking-wider">
-              Word Vrijwilliger <Heart className="ml-1 h-5 w-5" />
+            <Button className="bg-white/20 backdrop-blur text-white border border-white/30 hover:bg-white/30 font-display text-lg px-10 h-14 uppercase tracking-wider" asChild>
+              <a href="/aanmelden-vrijwilligers">
+                Word Vrijwilliger <Heart className="ml-1 h-5 w-5" />
+              </a>
             </Button>
           </div>
         </motion.div>
