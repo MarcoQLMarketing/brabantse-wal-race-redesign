@@ -11,6 +11,10 @@ import RoutesPage from "./pages/Routes";
 import Sponsoren from "./pages/Sponsoren";
 import Vrijwilligers from "./pages/Vrijwilligers";
 import Nieuws from "./pages/Nieuws";
+import Afstanden from "./pages/Afstanden";
+import Fotos from "./pages/Fotos";
+import Contact from "./pages/Contact";
+import AanmeldenVrijwilligers from "./pages/AanmeldenVrijwilligers";
 
 const queryClient = new QueryClient();
 
