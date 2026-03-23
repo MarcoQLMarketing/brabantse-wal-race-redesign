@@ -11,6 +11,10 @@ import RoutesPage from "./pages/Routes";
 import Sponsoren from "./pages/Sponsoren";
 import Vrijwilligers from "./pages/Vrijwilligers";
 import Nieuws from "./pages/Nieuws";
+import Afstanden from "./pages/Afstanden";
+import Fotos from "./pages/Fotos";
+import Contact from "./pages/Contact";
+import AanmeldenVrijwilligers from "./pages/AanmeldenVrijwilligers";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +31,10 @@ const App = () => (
           <Route path="/sponsoren" element={<Sponsoren />} />
           <Route path="/vrijwilligers" element={<Vrijwilligers />} />
           <Route path="/nieuws" element={<Nieuws />} />
+          <Route path="/afstanden" element={<Afstanden />} />
+          <Route path="/fotos" element={<Fotos />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/aanmelden-vrijwilligers" element={<AanmeldenVrijwilligers />} />
           <Route path="/styleguide" element={<Styleguide />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
