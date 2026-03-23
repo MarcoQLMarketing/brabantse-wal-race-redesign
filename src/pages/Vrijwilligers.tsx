@@ -81,8 +81,10 @@ const Vrijwilligers = () => (
             Elke high-five, elk bekertje water, elke aanwijzing op het parcours — 
             jij maakt het verschil. Vrijwilligers zijn de echte helden van de Triathlon Brabantse Wal.
           </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-yellow-hover font-display text-lg px-10 h-14 uppercase tracking-wider shadow-lg">
-            Meld je aan <Heart className="ml-2 h-5 w-5" />
+          <Button className="bg-primary text-primary-foreground hover:bg-yellow-hover font-display text-lg px-10 h-14 uppercase tracking-wider shadow-lg" asChild>
+            <a href="/aanmelden-vrijwilligers">
+              Meld je aan <Heart className="ml-2 h-5 w-5" />
+            </a>
           </Button>
         </motion.div>
       </section>
