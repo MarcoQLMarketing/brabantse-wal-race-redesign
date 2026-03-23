@@ -8,11 +8,11 @@ import runningIcon from "@/assets/icons/running.svg";
 const homeLink = { label: "Home", href: "/#home" };
 
 const navLinks = [
-  { label: "Afstanden", href: "/#afstanden" },
-  { label: "Foto's", href: "/#foto's" },
+  { label: "Afstanden", href: "/afstanden" },
+  { label: "Foto's", href: "/fotos" },
   { label: "Nieuws", href: "/nieuws" },
   { label: "Sponsoren", href: "/sponsoren" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const infoLinks = [
